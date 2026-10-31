@@ -6,7 +6,17 @@ A colourful, animated Tic-Tac-Toe game built with plain **HTML, CSS and JavaScri
 
 ## Screenshots
 
-_Coming soon._
+### Game in progress
+![TicTime game in progress with a few moves played](docs/images/gameplay.png)
+
+### Winning line
+![TicTime board with the winning line highlighted](docs/images/win-line.png)
+
+### Dark mode
+![TicTime in dark mode](docs/images/dark-mode.png)
+
+### Full game demo
+![Animated demo of a full game of TicTime from first move to win](docs/images/demo.gif)
 
 ## Run it
 
