@@ -92,6 +92,11 @@ select { font: inherit; padding: 6px 10px; border-radius: 10px; border: 1px soli
 
 /* ---------- Footer & confetti ---------- */
 .footer { max-width: 1000px; margin: 30px auto 0; text-align: center; color: var(--muted); font-size: .85rem; }
+.footer p { margin: 0 0 4px; }
+.footer a { color: var(--text); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+.footer a:hover { color: var(--accent); }
+.footer a:focus-visible { outline: 3px solid var(--o); outline-offset: 3px; border-radius: 4px; }
+.footer-note { font-size: .78rem; opacity: .85; }
 .confetti { position: fixed; top: -12px; width: 9px; height: 14px; border-radius: 2px; z-index: 10; pointer-events: none; animation: fall 1.9s ease-in forwards; }
 @keyframes fall { to { transform: translate(var(--drift), 105vh) rotate(720deg); opacity: .8; } }
 
