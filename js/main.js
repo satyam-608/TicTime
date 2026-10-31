@@ -1,11 +1,22 @@
 // Game state and event wiring. Connects game.js (rules) to ui.js (screen).
 
+const THEME_KEY = 'tictime-theme';
+
+function loadTheme() {
+  try {
+    return localStorage.getItem(THEME_KEY) === 'dark' ? 'dark' : 'light';
+  } catch (e) {
+    return 'light'; // storage blocked, fall back to light
+  }
+}
+
+
 const state = {
   board: createEmptyBoard(),
   currentPlayer: 'X',
   gameOver: false,
   scores: { X: 0, O: 0, draws: 0 },
-  theme: 'light',
+  theme: loadTheme(),
 };
 
 function handleCellClick(index) {
@@ -45,6 +56,7 @@ function startNewGame() {
 function toggleTheme() {
   state.theme = state.theme === 'light' ? 'dark' : 'light';
   setTheme(state.theme);
+  try { localStorage.setItem(THEME_KEY, state.theme); } catch (e) {}
 }
 
 // TODO: wire up the "Reset Scores" button (#reset-scores-btn)
@@ -53,5 +65,6 @@ buildBoard(handleCellClick);
 renderBoard(state.board);
 renderScores(state.scores);
 setStatus("Player X's turn", 'X');
+setTheme(state.theme);      
 document.getElementById('new-game-btn').addEventListener('click', startNewGame);
 document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
